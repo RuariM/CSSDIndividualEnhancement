@@ -1,0 +1,499 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+	padding: 0;
+  margin: 0;
+	font-family: 'Open Sans', sans-serif;
+  background: #1f1f1f;
+  color: #EEE;
+}
+
+.navbar {
+  background: transparent;
+  color: #FFF;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.nav-link, .navbar-brand {
+  color: #FFF;
+  font-weight: bold;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+  height: 40px;
+}
+
+.solid {
+  background: #FFF;
+  box-shadow: 0 3px 3px -3px rgba(0,0,0,.3);
+}
+
+.solid .nav-link, .solid .navbar-brand {
+    color: #B00020;
+    font-weight: bold;
+    -webkit-transition: 0.6s;
+    transition: 0.6s;
+}
+
+.nav-link:hover {
+  color: #B00020;
+  border-bottom: solid 4px #B00020;
+}
+  
+footer {
+    color: #232323;
+}
+
+footer a {
+    color: #B00020;
+}
+
+footer a:hover {
+    color: #B00020;
+    text-decoration: none;
+}
+
+#layout {
+    padding-top: 55px;
+    padding-bottom: 15px;
+}
+
+.container {
+    max-width: 100%;
+    padding: 0px;
+    margin: 0px;
+    top: 0px;
+    overflow: hidden;
+}
+
+.container section {
+    max-width: 100%;
+    margin: auto;
+}
+
+.container section .content-section {
+    margin: auto;
+    width: 80%;
+    max-width: 1100px;
+}
+
+.container section .content-section-large {
+  margin: auto;
+  width: 90%;
+  max-width: 1200px;
+}
+
+@include media-breakpoint-down(md) {
+    .container section .content-section {
+        width: 85%;
+    }
+}
+
+footer hr {
+    background: #404040;
+}
+
+@media (max-width: 900px) {
+    footer {
+        text-align: center;
+    }
+
+    footer .float-right {
+        display: block;
+        margin-top: 15px;
+        width: 100%;
+    }
+}
+
+.jumbotron {
+    background-blend-mode: darken;
+    transition: background-image 3s;
+    color: white;
+    display: table;
+    width: 100%;
+    margin: 0;
+    height: 600px;
+    background: url(../img/background.jpg);
+    background-position-x: center;
+    background-position-y: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+    padding-bottom: 0;
+    position: absolute;
+    top: 0;
+  }
+  
+  @media screen and (max-device-width: 1024px) {
+    .jumbotron {
+      background-attachment: scroll;
+    }
+    .navbar {
+      padding: 10px;
+    }
+  }
+  
+  .jumbotron-cell {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  
+  .jumbotron-body {
+    margin: auto;
+    padding: 50px;
+    width: 90%;
+    max-width: 1200px;
+    text-align: center;
+  }
+  
+  .jumbotron-header {
+    padding: 25px;
+    margin: auto;
+  }
+  
+  #intro h1 {
+    font-weight: 700;
+    margin-left: -3px;
+    text-shadow: 1px 1px black;
+    font-size: 3rem;
+  }
+  
+  #intro h1 span {
+    color: #dc8a00;
+  }
+  
+  #intro p {
+    font-size: 17px;
+    text-shadow: 1px 1px black;
+  }
+  
+  @media (min-width: 2000px) {
+    .jumbotron-body {
+      max-width: 80%;
+    }
+  }
+  
+  /* Large displays */
+  @media (min-width: 2500px) {
+    #intro h1 {
+      font-size: calc(20px + 1.6vw);
+    }
+  
+    #intro p {
+      max-width: 14vw;
+      font-size: 0.8vw;
+      margin-top: 0.8vw;
+    }
+  
+    .jumbotron-header {
+      max-width: 14vw;
+    }
+  }
+  
+  @media (max-width: 400px) {
+    .jumbotron-header {
+      max-width: 100%;
+      width: auto;
+      padding: 0px;
+    }
+  
+    .jumbotron-body {
+      padding: 20px;
+    }
+  
+    #intro #contribute,
+    #intro #download .dropdown-toggle {
+      font-size: 14px;
+    }
+  
+    #intro h1 {
+      font-size: 32px;
+    }
+  }
+
+.col-xs-5ths,
+.col-sm-5ths,
+.col-md-5ths,
+.col-lg-5ths {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.col-xs-5ths {
+    width: 20%;
+    float: left;
+}
+@media (min-width: 768px) {
+.col-sm-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+@media (min-width: 992px) {
+    .col-md-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+@media (min-width: 1200px) {
+    .col-lg-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+
+/* SECTION CSS */
+/* SECTION CSS */
+/* SECTION CSS */
+.hire-btn {
+  width: 250px;
+  height: 50px;
+  font-size: auto;
+  border-radius: 4px;
+  background-color: #f79007;
+  color: #FFF;
+  border: none;
+  font-weight: 700;
+}
+
+.jumbotron .hire-btn {
+  margin: 20px;
+}
+
+.transparent-btn {
+  background: transparent;
+  border: 3px solid #f79007;
+  border-radius: 5px;
+}
+
+.card {
+  -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.card::after {
+  content: "";
+  border-radius: 5px;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.card:hover {
+  -webkit-transform: scale(1.05, 1.05);
+  transform: scale(1.05, 1.05);
+}
+
+.card:hover::after {
+  opacity: 1;
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+.card-body .hire-btn {
+  position: absolute;
+  bottom: 15px;
+  left: 20px;
+  right: 20px;
+  width: 85%;
+  height: 40px;
+  font-size: auto;
+  border-radius: 4px;
+  background-color: #f79007;
+  color: #FFF;
+  border: none;
+  font-weight: 700;
+}
+
+#reasons {
+  background: #121212;
+  padding-top: 25px;
+  padding-bottom: 50px;
+  text-align: center;
+}
+
+#reasons .card {
+  background: #2c2c2c;
+}
+
+#reasons h4 {
+  padding-bottom: 15px;
+}
+
+#reasons .card-body {
+  height: 200px;
+}
+
+#testimonials {
+  background: #121212;
+  padding-top: 25px;
+  padding-bottom: 50px;
+  text-align: center;
+}
+
+#testimonials h4 {
+  padding-bottom: 15px;
+}
+
+.testimonial {
+  border: 1px solid rgb(224, 225, 225);
+  border-radius: 2px;
+  padding: 15px;
+  height: 400px;
+  -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.testimonial::after {
+  content: "";
+  border-radius: 5px;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.testimonial:hover {
+  -webkit-transform: scale(1.05, 1.05);
+  transform: scale(1.05, 1.05);
+}
+
+.testimonial:hover::after {
+  opacity: 1;
+}
+
+#contact {
+  padding-top: 25px;
+  padding-bottom: 50px;
+  text-align: center;
+}
+
+#contact h4 {
+  padding-bottom: 15px;
+}
+
+#about {
+  padding-top: 25px;
+  padding-bottom: 50px;
+  text-align: center;
+}
+
+.svg-icon svg {
+  fill: rgb(15, 76, 129);
+  width: 50px;
+  height: 50px;
+}
+
+#introduction {
+  padding-top: 575px;
+  text-align: center;
+}
+
+#introduction .card {
+  background: #2c2c2c;
+  min-height: 235px;
+}
+
+#introduction .svg-icon svg {
+  fill: rgb(15, 76, 129);
+  width: 64px;
+  height: 64px;
+  margin-top: 15px;
+}
+
+#hire {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  color: #FFF;
+  text-align: center;
+  background: #FC5C7D;
+  background: -webkit-linear-gradient(to right, #6A82FB, #FC5C7D);
+  background: linear-gradient(to right, #6A82FB, #FC5C7D);
+}
+
+.main-img {
+  padding-top: 75px;
+}
+
+.main-img img {
+  width: 100%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.75);
+}
+
+#introduction h4 {
+  padding-bottom: 15px;
+}
+
+#introduction .col-md-3 {
+  padding: 0!important;
+  margin: 0!important;
+}
+
+.ven-text {
+  padding-top: 75px;
+  margin-top: 25px;
+}
+
+.ven-img img {
+  margin-top: 25px;
+  margin-bottom: 50px;
+  border-radius: 5px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.75);
+  height: auto;
+  width: 100%;
+}
+
+.result {
+  color: #4CAF50;
+  font-weight: 600;
+  text-align: center;
+}
+
+@media screen and (max-device-width: 1024px) {
+  .testimonial {
+      height: 400px;
+  }
+
+  #about h5, #questing h5 {
+      text-align: left;
+  }    
+
+  .main-img {
+      padding-top: 0;
+  }
+
+  .ven-text {
+      padding-top: 0;
+  }
+
+  .col-md-2 .hire-btn {
+      width: 100%;
+      margin-top: 5px;
+  }
+}
+

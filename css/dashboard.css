@@ -1,0 +1,116 @@
+body {
+	padding: 0;
+    margin: 0;
+	font-family: 'Open Sans', sans-serif;
+    background: #1f1f1f;
+    color: #EEE;
+}
+
+hr {
+    border-top: 2px solid #1f1f1f;
+}
+
+.navibar {
+    z-index: 5;
+}
+
+.navibar .branding {
+    padding: 20px 10px;
+    z-index: 5;
+}
+
+.navibar .branding i {
+    font-size: 3.5em;
+    width: 44px;
+    display: flex;
+    margin: auto;
+    color: #B00020;
+}
+
+.navibar .branding h2 {
+    text-align: center;
+    color: #B00020;
+    font-weight: 600;
+}
+
+.navibar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 25%;
+    background-color: #121212;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+
+.navibar li a {
+    display: block;
+    color: #EEE;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+.navibar li a.active {
+    background-color: #f79007;
+    color: white;
+    transition: 0.5s;
+}
+
+.navibar li a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+    transition: 0.5s;
+}
+
+.main {
+    margin-left: 25%;
+    padding: 25px 20px;
+    text-align: center;
+}
+
+.result {
+    color: #4CAF50;
+    font-weight: 600;
+}
+
+.quote-container {
+    width: 75%;
+    background: #121212;
+    border-radius: 5px;
+    margin: auto;
+}
+
+.price-input {
+    width: 50%;
+    margin: auto;
+    margin-bottom: 15px;
+}
+
+.price-btn {
+    margin-bottom: 20px;
+}
+
+@media screen and (max-device-width: 1024px) {
+    .navibar ul {
+        top: 0;
+        width: 100%;
+        height: auto;
+    }
+    .main {
+        margin: 0;
+        margin-top: 300px;
+    }
+    .quote-container {
+        width: 100%;
+    }
+
+    .price-input {
+        width: 75%;
+    }
+
+    .price-btn {
+        width: 50%;
+    }
+}
