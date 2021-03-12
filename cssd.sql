@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 12, 2021 at 02:10 AM
+-- Generation Time: Mar 12, 2021 at 10:30 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -86,8 +86,12 @@ CREATE TABLE `orderlines` (
 --
 
 INSERT INTO `orderlines` (`orderID`, `itemID`, `quantity`, `lineID`) VALUES
-(114, 1, 1, 210),
-(114, 2, 1, 211);
+(136, 0, 2, 272),
+(136, 3, 1, 273),
+(137, 0, 2, 274),
+(137, 3, 1, 275),
+(138, 0, 2, 276),
+(138, 3, 1, 277);
 
 -- --------------------------------------------------------
 
@@ -110,7 +114,9 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `userID`, `date`, `address`, `status`, `total`, `location`) VALUES
-(114, 1, '2021-03-12 01:05:05', 'test house', 0, 60, 'Gloucestershire');
+(136, 1, '2021-03-12 21:03:38', '1 test road', 0, 120, 'Berkshire'),
+(137, 1, '2021-03-12 21:04:35', '1 test road', 0, 120, 'Berkshire'),
+(138, 1, '2021-03-12 21:13:55', '1 test road', 0, 120, 'Berkshire');
 
 -- --------------------------------------------------------
 
@@ -137,11 +143,7 @@ CREATE TABLE `quotes` (
 --
 
 INSERT INTO `quotes` (`id`, `userID`, `rooms`, `residents`, `location`, `notes`, `date`, `price`, `status`, `complete`, `utilityType`) VALUES
-(54, 1, 5, 2, 'Bedfordshire', '', '2021-02-23 14:44:14', 49.905555, 1, 0, 'Energy'),
-(57, 1, 5, 2, 'Bedfordshire', '', '2021-02-23 16:48:24', 0, 0, 0, 'Gas'),
-(72, 1, 5, 2, 'Bedfordshire', 'aa', '2021-03-11 22:50:50', 0, 0, 0, 'Energy'),
-(73, 1, 5, 2, 'Bedfordshire', 'aaa', '2021-03-11 22:51:24', 0, 0, 0, 'Energy'),
-(74, 1, 5, 2, 'Bedfordshire', '', '2021-03-11 22:56:46', 0, 0, 0, 'Energy');
+(76, 1, 3, 5, 'Berkshire', 'My house is well insulated', '2021-03-12 16:14:58', 0, 0, 0, 'Gas');
 
 -- --------------------------------------------------------
 
@@ -222,19 +224,19 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT for table `orderlines`
 --
 ALTER TABLE `orderlines`
-  MODIFY `lineID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=213;
+  MODIFY `lineID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=278;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=139;
 
 --
 -- AUTO_INCREMENT for table `quotes`
 --
 ALTER TABLE `quotes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT for table `users`
