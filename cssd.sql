@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 22, 2021 at 05:07 PM
+-- Generation Time: Mar 12, 2021 at 02:10 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -48,6 +48,73 @@ INSERT INTO `contact` (`id`, `firstname`, `lastname`, `email`, `need`, `message`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `items`
+--
+
+CREATE TABLE `items` (
+  `itemID` int(11) NOT NULL,
+  `name` text NOT NULL,
+  `price` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `items`
+--
+
+INSERT INTO `items` (`itemID`, `name`, `price`) VALUES
+(0, 'Smart Energy meter', 50),
+(1, 'Gas meter', 30),
+(2, 'Gas regulator', 10),
+(3, 'Basic energy meter', 20),
+(4, 'Solar meter', 75);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orderlines`
+--
+
+CREATE TABLE `orderlines` (
+  `orderID` int(11) NOT NULL,
+  `itemID` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `lineID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `orderlines`
+--
+
+INSERT INTO `orderlines` (`orderID`, `itemID`, `quantity`, `lineID`) VALUES
+(114, 1, 1, 210),
+(114, 2, 1, 211);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL,
+  `userID` int(11) NOT NULL,
+  `date` datetime NOT NULL DEFAULT current_timestamp(),
+  `address` text NOT NULL,
+  `status` int(11) NOT NULL,
+  `total` int(11) NOT NULL,
+  `location` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `userID`, `date`, `address`, `status`, `total`, `location`) VALUES
+(114, 1, '2021-03-12 01:05:05', 'test house', 0, 60, 'Gloucestershire');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `quotes`
 --
 
@@ -70,8 +137,11 @@ CREATE TABLE `quotes` (
 --
 
 INSERT INTO `quotes` (`id`, `userID`, `rooms`, `residents`, `location`, `notes`, `date`, `price`, `status`, `complete`, `utilityType`) VALUES
-(44, 1, 50, 20, 'Bedfordshire', '', '2021-02-22 16:00:33', 0, 0, 0, 'Energy'),
-(45, 1, 1, 1, 'City of London', '', '2021-02-22 16:00:41', 0, 0, 0, 'Gas');
+(54, 1, 5, 2, 'Bedfordshire', '', '2021-02-23 14:44:14', 49.905555, 1, 0, 'Energy'),
+(57, 1, 5, 2, 'Bedfordshire', '', '2021-02-23 16:48:24', 0, 0, 0, 'Gas'),
+(72, 1, 5, 2, 'Bedfordshire', 'aa', '2021-03-11 22:50:50', 0, 0, 0, 'Energy'),
+(73, 1, 5, 2, 'Bedfordshire', 'aaa', '2021-03-11 22:51:24', 0, 0, 0, 'Energy'),
+(74, 1, 5, 2, 'Bedfordshire', '', '2021-03-11 22:56:46', 0, 0, 0, 'Energy');
 
 -- --------------------------------------------------------
 
@@ -107,6 +177,26 @@ ALTER TABLE `contact`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `items`
+--
+ALTER TABLE `items`
+  ADD PRIMARY KEY (`itemID`);
+
+--
+-- Indexes for table `orderlines`
+--
+ALTER TABLE `orderlines`
+  ADD PRIMARY KEY (`lineID`),
+  ADD KEY `orderLineLink` (`orderID`),
+  ADD KEY `itemLineLink` (`itemID`);
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `quotes`
 --
 ALTER TABLE `quotes`
@@ -129,16 +219,39 @@ ALTER TABLE `contact`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT for table `orderlines`
+--
+ALTER TABLE `orderlines`
+  MODIFY `lineID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=213;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
+
+--
 -- AUTO_INCREMENT for table `quotes`
 --
 ALTER TABLE `quotes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `orderlines`
+--
+ALTER TABLE `orderlines`
+  ADD CONSTRAINT `itemLineLink` FOREIGN KEY (`itemID`) REFERENCES `items` (`itemID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `orderLineLink` FOREIGN KEY (`orderID`) REFERENCES `orders` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

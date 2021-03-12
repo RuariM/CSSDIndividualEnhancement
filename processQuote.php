@@ -18,7 +18,11 @@
             header("location: admin");
             exit;
         } 
-
+        else {
+            header("location: admin");
+            exit;
+        }
+        print_r($_POST);
         // Close the connection to the database
         $db->close();
     }  

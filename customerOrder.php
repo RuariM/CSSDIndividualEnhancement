@@ -73,7 +73,7 @@
         </div>
         <div class="main">
             <?php
-                $sql  = "SELECT status, date, address FROM orders WHERE id='".$id."'";
+                $sql  = "SELECT status, date, address, location FROM orders WHERE id='".$id."'";
                 $result = mysqli_query($db, $sql);
                 $row = $result->fetch_assoc();
                 $status = $row['status'];

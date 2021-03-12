@@ -19,14 +19,12 @@
     
     $total = 0;
     $status = 0;
-    
 
-    if(!empty($_GET) && !empty($_GET["lineID"])){
+    if(!empty($_POST) && !empty($_POST["lineID"])){
         
-        $lineID = $_GET["lineID"];
-        print_r($_POST); 
-        print_r($_GET); 
-        $sql = "DELETE FROM orderlines WHERE id='".$lineID."'";
+        $lineID = $_POST["lineID"];
+        
+        $sql = "DELETE FROM orderlines WHERE lineID='".$lineID."'";
         
         // If the delete is successful send a success message, otherwise error
         if ($db->query($sql) === TRUE) {
@@ -34,6 +32,7 @@
         } 
         else {
             $result123 = "<p class='result'>There was an unexpected error, please try again!</p>";
+            print_r($_POST);
         }
     }
     
@@ -64,7 +63,7 @@
     </div>
         <div class="main">
             <?php
-                $sql  = "SELECT status, date, address FROM orders WHERE id='".$id."'";
+                $sql  = "SELECT status, date, address, location FROM orders WHERE id='".$id."'";
                 $result = mysqli_query($db, $sql);
                 $row = $result->fetch_assoc();
                 $status = $row['status'];
@@ -110,8 +109,9 @@
                         <td>£<?php echo $line['price']; ?></td>
                         <td>£<?php echo $line['price'] * $row['quantity']; $total += ($line['price'] * $row['quantity'])?></td>
                         <td><?php echo $row['quantity']; ?></td>
-                        <form action="adminOrder" method="GET" class="form-group" style="width: 100%">
-                                <input type="hidden" id="lineID" name="lineID" value="<?php echo $row['lineID'], $id; ?>">
+                        <form action="adminOrder" method="post" class="form-group" style="width: 100%">
+                                <input type="hidden" id="lineID" name="lineID" value="<?php echo $row['lineID']; ?>">
+                                <input type="hidden" id="orderID" name="orderID" value="<?php echo $id; ?>">
                                 <td><button class="btn btn-danger">Remove</button></td>
                         </form>
                     </tr>

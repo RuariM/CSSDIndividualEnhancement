@@ -17,7 +17,7 @@
     // Include the database connection
     require_once "static/connect.php";
 
-    $result123 = "";
+    $quoteResult = "";
 
     // Only run the code if the form has been submitted
     if(!empty($_POST) && !empty($_POST["quoteID"])) {
@@ -29,12 +29,13 @@
         
         // If the delete is successful send a success message, otherwise error
         if ($db->query($sql) === TRUE) {
-            $result123 = "<p class='result'>Your quote request has been successfully cancelled.</p>";
+            $quoteResult = "<p class='result'>Your quote request has been successfully cancelled.</p>";
         } 
         else {
-            $result123 = "<p class='result'>There was an unexpected error, please try again!</p>";
+            $quoteResult = "<p class='result'>There was an unexpected error, please try again!</p>";
         }
-    }    
+    }  
+    $orderResult = "";
     if(!empty($_POST) && !empty($_POST["orderID"])){
         // Get the information passed from the cancellation click
         $orderID = $_POST["orderID"];
@@ -44,10 +45,10 @@
         
         // If the delete is successful send a success message, otherwise error
         if ($db->query($sql) === TRUE) {
-            $result123 = "<p class='result'>Your quote request has been successfully cancelled.</p>";
+            $orderResult = "<p class='result'>Your order request has been successfully cancelled.</p>";
         } 
         else {
-            $result123 = "<p class='result'>There was an unexpected error, please try again!</p>";
+            $orderResult = "<p class='result'>There was an unexpected error, please try again!</p>";
         }
     }
 ?>
@@ -136,7 +137,7 @@
                 </tbody>
             </table>      
 
-            <?php echo $result123; ?>
+            <?php echo $quoteResult; ?>
             
             <h2>Purchase Orders</h2>
 
@@ -186,6 +187,9 @@
                     ?>
                 </tbody>
             </table> 
+
+            <?php echo $orderResult; ?>
+
             <p>You can cancel any request at any time by pressing the cancel button next to your request.</p>
             <p>If you have recieved a price, cancelling the request will mean you will have to wait again if you choose to submit another</p>
 
