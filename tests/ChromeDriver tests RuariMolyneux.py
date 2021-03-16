@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[25]:
+# In[1]:
 
 
 #first get webdriver, chromedriver and time
@@ -10,7 +10,7 @@ from selenium import webdriver #pip install selenium
 from webdriver_manager.chrome import ChromeDriverManager #pip intall webdriver-manager
 
 
-# In[26]:
+# In[2]:
 
 
 #customer login function
@@ -32,7 +32,7 @@ def customer_login():
     time.sleep(1)
 
 
-# In[27]:
+# In[3]:
 
 
 #admin login function
@@ -56,7 +56,7 @@ def admin_login():
 
 # # Create purchase order
 
-# In[28]:
+# In[11]:
 
 
 from selenium.webdriver.common.action_chains import ActionChains
@@ -99,9 +99,9 @@ print("Actual_2: "+ actual_2)
 driver.quit()
 
 
-# # Delete purchase order
+# # Cancel purchase order(customer)
 
-# In[31]:
+# In[13]:
 
 
 #the prerequisite for this test is that the top order has not been responded to
@@ -122,9 +122,9 @@ print("Actual: "+ actual)
 driver.quit()
 
 
-# # Respond to order
+# # Respond to order (confirm price)
 
-# In[32]:
+# In[14]:
 
 
 #the prerequisite for this test is that there his an active order request
@@ -152,11 +152,12 @@ driver.quit()
 
 # # Amend purchase order
 
-# In[33]:
+# In[15]:
 
 
+#get driver
 driver = webdriver.Chrome(ChromeDriverManager().install())
- #direct driver to site
+#direct driver to site
 driver.set_window_size(1500, 1000)
 admin_login()
 view = driver.find_element_by_name('viewOrder')
@@ -176,7 +177,35 @@ print("Actual: "+ actual)
 driver.quit()
 
 
-# 
+# # Respond to order (cancel order)
+
+# In[12]:
+
+
+driver = webdriver.Chrome(ChromeDriverManager().install())
+ #direct driver to site
+driver.set_window_size(1500, 1000)
+admin_login()
+pre_ID  = driver.find_element_by_name('row').text
+view = driver.find_element_by_name('viewOrder')
+view.click()
+#wait to load next page
+time.sleep(1)
+cancel = driver.find_element_by_name('cancel')
+cancel.click()
+
+expected = "Admin | The CSSD Company"
+actual = driver.title
+post_ID = driver.find_element_by_name('row').text
+
+if(pre_ID != post_ID and actual == expected):
+    print("Test passed")
+else:
+    print("Test failed")
+print("Expected: "+ expected)
+print("Actual: "+ actual)
+driver.quit()
+
 
 # In[ ]:
 

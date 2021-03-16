@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 12, 2021 at 10:30 PM
+-- Generation Time: Mar 15, 2021 at 11:08 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -86,12 +86,15 @@ CREATE TABLE `orderlines` (
 --
 
 INSERT INTO `orderlines` (`orderID`, `itemID`, `quantity`, `lineID`) VALUES
-(136, 0, 2, 272),
-(136, 3, 1, 273),
-(137, 0, 2, 274),
-(137, 3, 1, 275),
-(138, 0, 2, 276),
-(138, 3, 1, 277);
+(152, 1, 2, 314),
+(152, 2, 2, 315),
+(153, 0, 1, 316),
+(153, 1, 1, 317),
+(153, 2, 1, 318),
+(153, 3, 2, 319),
+(153, 4, 4, 320),
+(154, 0, 2, 321),
+(154, 3, 1, 322);
 
 -- --------------------------------------------------------
 
@@ -114,9 +117,9 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `userID`, `date`, `address`, `status`, `total`, `location`) VALUES
-(136, 1, '2021-03-12 21:03:38', '1 test road', 0, 120, 'Berkshire'),
-(137, 1, '2021-03-12 21:04:35', '1 test road', 0, 120, 'Berkshire'),
-(138, 1, '2021-03-12 21:13:55', '1 test road', 0, 120, 'Berkshire');
+(152, 1, '2021-03-15 19:37:49', 'qqq', 0, 80, 'Bedfordshire'),
+(153, 1, '2021-03-15 19:37:55', 'qqqq', 0, 430, 'Durham'),
+(154, 1, '2021-03-15 21:58:18', '1 test road', 0, 120, 'Berkshire');
 
 -- --------------------------------------------------------
 
@@ -143,7 +146,11 @@ CREATE TABLE `quotes` (
 --
 
 INSERT INTO `quotes` (`id`, `userID`, `rooms`, `residents`, `location`, `notes`, `date`, `price`, `status`, `complete`, `utilityType`) VALUES
-(76, 1, 3, 5, 'Berkshire', 'My house is well insulated', '2021-03-12 16:14:58', 0, 0, 0, 'Gas');
+(76, 1, 3, 5, 'Berkshire', 'My house is well insulated', '2021-03-12 16:14:58', 70.3555, 1, 0, 'Gas'),
+(94, 1, 50, 20, 'Berkshire', 'My house is well insulated', '2021-03-13 18:03:34', 0, 0, 0, 'Gas'),
+(97, 1, 50, 20, 'Berkshire', 'My house is well insulated', '2021-03-13 18:55:25', 0, 0, 0, 'Gas'),
+(98, 1, 1, 1, 'Berkshire', 'My house is well insulated', '2021-03-13 18:58:21', 8.89, 1, 0, 'Gas'),
+(99, 1, 14, 7, 'East Riding of Yorkshire', '', '2021-03-15 22:04:37', 0, 0, 0, 'Energy');
 
 -- --------------------------------------------------------
 
@@ -218,25 +225,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `orderlines`
 --
 ALTER TABLE `orderlines`
-  MODIFY `lineID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=278;
+  MODIFY `lineID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=323;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=139;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=155;
 
 --
 -- AUTO_INCREMENT for table `quotes`
 --
 ALTER TABLE `quotes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 
 --
 -- AUTO_INCREMENT for table `users`
